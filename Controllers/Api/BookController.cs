@@ -1,6 +1,7 @@
 using Data.Contexts;
 using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Controllers.Api
 {
@@ -24,7 +25,9 @@ namespace Controllers.Api
     [HttpGet]
     public IEnumerable<Book> GetBooks()
     {
-      var books = _appDbContext.Book;
+      var books = _appDbContext.Book
+        .Include(x => x.Author);
+
       return books;
     }
 

@@ -1,0 +1,19 @@
+@{
+  ViewData["Title"] = "Create Book";
+}
+
+<form method="post" action="/Book/Create">
+
+  @Html.AntiForgeryToken();
+
+  <div class="form-group">
+    <label for="">Book Name</label>
+    <input type="text" name="BookName" class="form-control">
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </div>
+</form>

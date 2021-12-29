@@ -1,0 +1,31 @@
+@using Data.Entities
+
+@model List<Book>
+
+@{
+  ViewData["Title"] = "Book";
+}
+
+<h1>Book Page</h1>
+
+<a href="/Home/CreateBook">Create Book</a>
+
+<table class="table table-sm table-hover" width="100%">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Book Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>@item.Id</td>
+        <td>@item.Title</td>
+        <td>@item.Author.Name</td>
+      </tr>
+    }
+  </tbody>
+</table>
